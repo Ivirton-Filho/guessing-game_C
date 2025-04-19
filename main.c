@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #define NUMERO_CHUTES 10
 
 int main(void){
@@ -25,17 +26,17 @@ for (int i = 1; i <=NUMERO_CHUTES; i++) {
     printf("Parabens, voce acertou o numero secreto :)\n");
     break;
   }else if (chute > numeroSecreto) {
-    pontos = pontos - (chute - numeroSecreto) / 2;
     printf("chute foi errado! Tente novamente!\n");
     printf("Dica: o chute foi maior que o numero secreto!\n");
+    pontos = pontos - abs((chute - numeroSecreto) / 2);
   }else {
       printf("chute foi errado! Tente novamente!\n");
       printf("Dica: O chute foi menor que o numero secreto\n");
-      pontos = pontos - (chute - numeroSecreto) / 2.0;
+      pontos = pontos - abs((chute - numeroSecreto) / 2.0);
     }
 }
 
   printf("\nFim de jogo!\n");
-  printf("Pontuacao total:%g", pontos);
+  printf("Pontuacao total:%.1f", pontos);
   return 0;
 }
