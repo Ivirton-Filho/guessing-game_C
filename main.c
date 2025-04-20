@@ -1,13 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h> // faz funcionar a função time, reponsavel em gerar um numero aleatorio (contagem de segundos desde 1970)
 #define NUMERO_CHUTES 10
 
 int main(void){
   printf("************************************\n");
   printf("* Bem vindo ao jogo de adivinhacao *\n");
   printf("************************************\n");
-
-  int numeroSecreto = 42;
+  int segundos = time(0);
+  srand(segundos);
+  int numeroSecreto = rand() % 50;
   int chute;
   float pontos = 1000;
 
